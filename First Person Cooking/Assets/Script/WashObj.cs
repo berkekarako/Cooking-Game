@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WashObj : MonoBehaviour
@@ -25,16 +23,17 @@ public class WashObj : MonoBehaviour
         x -= Time.deltaTime;
 
         if (!(x <= 0)) return;
-        if(TryGetComponent(out Tabak tabak)) tabak.state = Tabak.State.Clear;
+        if(TryGetComponent(out Plate plate)) plate.state = Plate.State.Clear;
         if (TryGetComponent(out MeshRenderer meshRenderer)) meshRenderer.material.color = new Color(1, 1, 1);
         isWashing = false;
     }
 
-    public void WashEnd()
+    public void WashEnd(Interactable interactable)
     {
         try
         {
             isWashing = false;
+            interactable.dishWasher = null;
             dishWasher.washObjects.Remove(gameObject);
         }
         catch (Exception e)

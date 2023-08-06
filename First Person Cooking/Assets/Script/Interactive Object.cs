@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
@@ -8,7 +6,6 @@ public class InteractiveObject : MonoBehaviour
     public Camera cam;
     public Transform cubeTransform;
     public float lerpTime,maxDis, throwingForce;
-    public bool ObjeBrrakalcakmı;
     private Rigidbody _rb;
 
     private void Update()
@@ -17,29 +14,20 @@ public class InteractiveObject : MonoBehaviour
         {
             if (_rb)
             {
-                ObjeBrrakalcakmı = true;
                 _rb.gameObject.GetComponent<Collider>().enabled = false;
-                _rb.isKinematic = false;
-                _rb.GetComponent<Collider>().isTrigger = false;
-                
+
                 var transform1 = cam.transform;
                 var ray = new Ray(transform1.position, transform1.forward);
                 
                 if (Physics.Raycast(ray, out var raycastHit, maxDis))
                 {
-                    if(raycastHit.collider.CompareTag("Tava")) raycastHit.collider.GetComponent<TavaTasimaObjeyle>().PlaceObject(_rb.gameObject);
-                    else if (raycastHit.collider.TryGetComponent(out Tabak tabak)) tabak.PlaceObject(_rb.gameObject);
-                    else if (raycastHit.collider.TryGetComponent(out Gargabe gargabe)) ObjeBrrakalcakmı = gargabe.DeleteObj(_rb.gameObject);
-                    else if (raycastHit.collider.TryGetComponent(out DishWasher dishWasher)) ObjeBrrakalcakmı = dishWasher.Wash(_rb.gameObject);
+                    if(raycastHit.collider.TryGetComponent(out Pan pan)) pan.PlaceObject(_rb.gameObject, this);
+                    else if (raycastHit.collider.TryGetComponent(out Plate plate)) plate.PlaceObject(_rb.gameObject, this);
+                    else if (raycastHit.collider.TryGetComponent(out Gargabe gargabe)) gargabe.DeleteObj(_rb.gameObject, this);
+                    else if (raycastHit.collider.TryGetComponent(out DishWasher dishWasher)) dishWasher.Wash(_rb.gameObject, this);
+                    else ObjectDrop();
                 }
-                
-                
-                if (ObjeBrrakalcakmı)
-                {
-                    _rb.gameObject.GetComponent<Collider>().enabled = true;
-                    _rb = null;
-                }
-                
+                else ObjectDrop();
             }
             else
             {
@@ -48,45 +36,25 @@ public class InteractiveObject : MonoBehaviour
                 
                 if (Physics.Raycast(ray, out var raycastHit, maxDis))
                 {
-                    if(raycastHit.collider.TryGetComponent(out İnteractable interactable))
+                    if(raycastHit.collider.TryGetComponent(out Interactable interactable))
                     {
                         _rb = raycastHit.collider.gameObject.GetComponent<Rigidbody>();
-                        if (_rb)
-                        {
-                            _rb.GetComponent<İnteractable>().TavanınIcindemi = false;
-                            _rb.GetComponent<İnteractable>().TabakinIcinde = false;
-                            
-                            interactable.inDishwasher = false;
-                            if(_rb.gameObject.TryGetComponent(out WashObj washObj)) washObj.WashEnd();
-                            
-                            if(_rb.TryGetComponent(out Pisirilebilir pisirilebilir)) pisirilebilir.PisirmeBitir();
-                            
-                            _rb.transform.SetParent(null);
-                            _rb.isKinematic = true;
-                            _rb.gameObject.GetComponent<Collider>().enabled = false;
-                            _rb.GetComponent<Collider>().isTrigger = true;
-                        }
+                        
+                        interactable.ObjectTake();
+                        TakeObject(_rb);
                     }
                     
-                    else if (raycastHit.collider.TryGetComponent(out Varil varil))
+                    else if (raycastHit.collider.TryGetComponent(out Barrel barrel))
                     {
-                        var a = varil.ObjeyiVer();
+                        var a = barrel.ObjeyiVer();
                         
-                        if (a)
-                        {
-                            _rb = a.GetComponent<Rigidbody>();
-                            if (_rb)
-                            {
-                                _rb.isKinematic = true;
-                                _rb.gameObject.GetComponent<Collider>().enabled = false;
-                            }
-                        }
+                        if (a) TakeObject(a.GetComponent<Rigidbody>());
                     }
                 }
             }
         }
 
-        if (!_rb) return;
+        /*if (!_rb) return;
         _rb.MovePosition(Vector3.Lerp(_rb.transform.position, cubeTransform.position, lerpTime));
         _rb.MoveRotation(Quaternion.Lerp(_rb.transform.rotation, cubeTransform.rotation, lerpTime));
         if (!Input.GetMouseButtonDown(0)) return;
@@ -94,6 +62,41 @@ public class InteractiveObject : MonoBehaviour
         _rb.gameObject.GetComponent<Collider>().enabled = true;
         _rb.gameObject.GetComponent<Collider>().isTrigger = false;
         _rb.AddForce(cam.transform.forward * throwingForce, ForceMode.VelocityChange);
+        _rb = null;*/
+    }
+
+    public void ObjectDrop()
+    {
+        _rb.transform.SetParent(null);
+        
+        _rb.gameObject.GetComponent<Collider>().enabled = true;
+        _rb.GetComponent<Collider>().isTrigger = false;
+        _rb.isKinematic = false;
         _rb = null;
+    }
+
+    public void ObjectPut(bool colliderEnable = true, bool isTrigger = true, bool isKinematic = true)
+    {
+        _rb.transform.SetParent(null);
+        
+        _rb.GetComponent<Collider>().enabled = colliderEnable;
+        _rb.GetComponent<Collider>().isTrigger = isTrigger;
+        _rb.isKinematic = isKinematic;
+        
+        _rb = null;
+    }
+    
+    public void TakeObject(Rigidbody rb)
+    {
+        _rb = rb;
+
+        _rb.transform.SetParent(null);
+        _rb.transform.position = cubeTransform.position;
+        _rb.transform.rotation = cubeTransform.rotation;
+        _rb.transform.SetParent(cubeTransform);
+        
+        _rb.isKinematic = true;
+        _rb.gameObject.GetComponent<Collider>().enabled = false;
+        _rb.GetComponent<Collider>().isTrigger = true;
     }
 }

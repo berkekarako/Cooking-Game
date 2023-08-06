@@ -1308,24 +1308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   foodPosition: {fileID: 845789251}
---- !u!114 &347935728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347935725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7059266d850523147820f0ae0ccb57e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "Tavan\u0131nIcindemi": 0
-  TabakinIcinde: 0
-  inDishwasher: 0
-  tavayaKoyulabilir: 0
-  tabakaKoyulabilir: 0
-  canPutDishwasher: 1
 --- !u!54 &347935729
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1379,6 +1361,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4592001905311546, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
   m_PrefabInstance: {fileID: 873487666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &347935736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347935725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
+  tavayaKoyulabilir: 0
+  tabakaKoyulabilir: 0
+  canPutDishwasher: 1
 --- !u!1001 &369325708
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1534,24 +1534,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   foodPosition: {fileID: 1100273576}
---- !u!114 &419141322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 419141319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7059266d850523147820f0ae0ccb57e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "Tavan\u0131nIcindemi": 0
-  TabakinIcinde: 0
-  inDishwasher: 0
-  tavayaKoyulabilir: 0
-  tabakaKoyulabilir: 0
-  canPutDishwasher: 1
 --- !u!54 &419141323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1605,6 +1587,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4592001905311546, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
   m_PrefabInstance: {fileID: 1750477835}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &419141330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419141319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
+  tavayaKoyulabilir: 0
+  tabakaKoyulabilir: 0
+  canPutDishwasher: 1
 --- !u!1001 &438711041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1823,13 +1823,13 @@ PrefabInstance:
       addedObject: {fileID: 1967617460}
     - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1967617459}
-    - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1967617458}
     - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1967617457}
+    - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1967617467}
   m_SourcePrefab: {fileID: 100100000, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
 --- !u!4 &558985515 stripped
 Transform:
@@ -2334,13 +2334,13 @@ PrefabInstance:
       addedObject: {fileID: 347935729}
     - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 347935728}
-    - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 347935727}
     - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
       insertIndex: -1
       addedObject: {fileID: 347935726}
+    - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 347935736}
   m_SourcePrefab: {fileID: 100100000, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
 --- !u!1001 &880448598
 PrefabInstance:
@@ -3007,6 +3007,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e073448285825c640acf0f1331291f2e, type: 3}
+--- !u!1 &1228062920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8682212671192812202, guid: 931054b5ad708a9429442dccf392767d, type: 3}
+  m_PrefabInstance: {fileID: 2743536851208291345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1228062928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228062920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
+  tavayaKoyulabilir: 1
+  tabakaKoyulabilir: 1
+  canPutDishwasher: 0
 --- !u!1001 &1235475028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4819,13 +4842,13 @@ PrefabInstance:
       addedObject: {fileID: 419141323}
     - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 419141322}
-    - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 419141321}
     - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
       insertIndex: -1
       addedObject: {fileID: 419141320}
+    - targetCorrespondingSourceObject: {fileID: 1941510315769716, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 419141330}
   m_SourcePrefab: {fileID: 100100000, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
 --- !u!4 &1758006240 stripped
 Transform:
@@ -5806,24 +5829,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   foodPosition: {fileID: 1620443126}
---- !u!114 &1967617459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967617456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7059266d850523147820f0ae0ccb57e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "Tavan\u0131nIcindemi": 0
-  TabakinIcinde: 0
-  inDishwasher: 0
-  tavayaKoyulabilir: 0
-  tabakaKoyulabilir: 0
-  canPutDishwasher: 1
 --- !u!54 &1967617460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5877,6 +5882,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4592001905311546, guid: acbc7238c9c191d4d8aff4ab3a575a69, type: 3}
   m_PrefabInstance: {fileID: 525134675}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1967617467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967617456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
+  tavayaKoyulabilir: 0
+  tabakaKoyulabilir: 0
+  canPutDishwasher: 1
 --- !u!1001 &1974205223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6360,7 +6383,7 @@ GameObject:
   - component: {fileID: 3490815415173438977}
   - component: {fileID: 8848908661858685845}
   m_Layer: 0
-  m_Name: FirstPersonController
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6502,7 +6525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2322064582732069338}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.048, y: -0.362, z: 0.682}
+  m_LocalPosition: {x: 0, y: -0.375, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6698,10 +6721,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Steak
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4442646264946786617, guid: 931054b5ad708a9429442dccf392767d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8682212671192812202, guid: 931054b5ad708a9429442dccf392767d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1228062928}
   m_SourcePrefab: {fileID: 100100000, guid: 931054b5ad708a9429442dccf392767d, type: 3}
 --- !u!1 &2762711050889985085
 GameObject:
@@ -6716,8 +6743,8 @@ GameObject:
   - component: {fileID: 2531042848313451882}
   - component: {fileID: 859583486607532949}
   - component: {fileID: 457648594665572382}
-  - component: {fileID: 6425846781161454648}
   - component: {fileID: 6425846781161454647}
+  - component: {fileID: 6425846781161454648}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -6776,7 +6803,7 @@ GameObject:
   - component: {fileID: 5024065498130421916}
   - component: {fileID: 4848565671568478174}
   - component: {fileID: 7918405737877454777}
-  - component: {fileID: 7918405737877454776}
+  - component: {fileID: 7918405737877454778}
   m_Layer: 0
   m_Name: Tava
   m_TagString: Tava
@@ -7265,12 +7292,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2762711050889985085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7059266d850523147820f0ae0ccb57e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Tavan\u0131nIcindemi": 0
-  TabakinIcinde: 0
-  inDishwasher: 0
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
   tavayaKoyulabilir: 1
   tabakaKoyulabilir: 1
   canPutDishwasher: 0
@@ -7455,24 +7482,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7918405737877454776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3049784002449767068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7059266d850523147820f0ae0ccb57e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "Tavan\u0131nIcindemi": 0
-  TabakinIcinde: 0
-  inDishwasher: 0
-  tavayaKoyulabilir: 0
-  tabakaKoyulabilir: 0
-  canPutDishwasher: 0
 --- !u!114 &7918405737877454777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7486,6 +7495,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FoodPosition: {fileID: 2968340474643709654}
+--- !u!114 &7918405737877454778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049784002449767068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
+  tavayaKoyulabilir: 0
+  tabakaKoyulabilir: 0
+  canPutDishwasher: 1
 --- !u!1001 &8140380108166444357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7620,10 +7647,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 6308272850872743179}
   cubeTransform: {fileID: 2402743076316391334}
-  lerpTime: 0.25
+  lerpTime: 1
   maxDis: 3
   throwingForce: 5
-  "ObjeBrrakalcakm\u0131": 0
 --- !u!224 &8963980974512116485
 RectTransform:
   m_ObjectHideFlags: 0

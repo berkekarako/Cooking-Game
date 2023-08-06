@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Varil : MonoBehaviour
+public class Barrel : MonoBehaviour
 {
     public GameObject verilcekObje;
     

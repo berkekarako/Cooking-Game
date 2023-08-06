@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class Gargabe : MonoBehaviour
 {
-    public bool DeleteObj(GameObject obj)
+    public bool DeleteObj(GameObject obj, InteractiveObject interactiveObject)
     {
-        if (obj.TryGetComponent(out Pisirilebilir pisirilebilir))
+        if (obj.TryGetComponent(out Cookable cookable))
         {
             Destroy(obj);
-            return true;
+            interactiveObject.ObjectDrop();
         }
 
-        if (obj.TryGetComponent(out Tabak tabak))
+        if (obj.TryGetComponent(out Plate plate))
         {
             foreach (Transform altObjs in obj.transform)
             {
-                if (altObjs.TryGetComponent(out Pisirilebilir pisirilebilir2))
+                if (altObjs.TryGetComponent(out Cookable cookable2))
                 {
-                    tabak.RemoveObject(altObjs.gameObject);
+                    plate.RemoveObject(altObjs.GetComponent<Interactable>(), altObjs.gameObject);
                     Destroy(altObjs.gameObject);
                     
                     obj.GetComponent<Collider>().enabled = true;
@@ -28,13 +28,13 @@ public class Gargabe : MonoBehaviour
             }
         }
         
-        if (obj.TryGetComponent(out TavaTasimaObjeyle tava))
+        if (obj.TryGetComponent(out Pan pan))
         {
             foreach (Transform altObjs in obj.transform)
             {
-                if (altObjs.TryGetComponent(out Pisirilebilir pisirilebilir3))
+                if (altObjs.TryGetComponent(out Cookable cookable3))
                 {
-                    tava.RemoveObject(altObjs.gameObject);
+                    pan.RemoveObject(altObjs.GetComponent<Interactable>(), altObjs.gameObject);
                     Destroy(altObjs.gameObject);
                     
                     obj.GetComponent<Collider>().enabled = true;

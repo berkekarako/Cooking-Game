@@ -1,11 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class Tabak : MonoBehaviour
+public class Plate : MonoBehaviour
 {
     
     [Serializable] public enum State
@@ -20,20 +16,20 @@ public class Tabak : MonoBehaviour
     private bool _placeIsFull;
     private GameObject _carryObj;
 
-    public void PlaceObject(GameObject obj)
+    public void PlaceObject(GameObject obj, InteractiveObject interactiveObject)
     {
-        if (obj.GetComponent<İnteractable>().tabakaKoyulabilir)
+        if (obj.GetComponent<Interactable>().tabakaKoyulabilir)
         {
             if (!_placeIsFull && state == State.Clear)
             {
                 _placeIsFull = true;
-            
-                obj.gameObject.GetComponent<Collider>().enabled = true;
-                obj.gameObject.GetComponent<Collider>().isTrigger = true;
-                obj.GetComponent<Rigidbody>().isKinematic = true;
-            
-                obj.GetComponent<İnteractable>().TabakinIcinde = true;
+                
+                interactiveObject.ObjectPut();
+
+                obj.GetComponent<Interactable>().plate = this;
+                
                 _carryObj = obj;
+                
                 obj.transform.rotation = transform.rotation;
                 obj.transform.position = foodPosition.position;
                 obj.transform.parent = transform;
@@ -44,31 +40,25 @@ public class Tabak : MonoBehaviour
                 obj.gameObject.GetComponent<Collider>().enabled = false;
                 obj.gameObject.GetComponent<Collider>().isTrigger = true;
                 obj.GetComponent<Rigidbody>().isKinematic = true;
-                GameObject.FindWithTag("Player").GetComponent<InteractiveObject>().ObjeBrrakalcakmı = false;
             }
         }
         else
         {
-            GameObject.FindWithTag("Player").GetComponent<InteractiveObject>().ObjeBrrakalcakmı = false;
             obj.GetComponent<Collider>().enabled = true;
             obj.GetComponent<Collider>().isTrigger = true;
             obj.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
     
-    public void RemoveObject(GameObject obj)
+    public void RemoveObject(Interactable interactable ,GameObject obj)
     {
+        interactable.plate = null;
+        
         _placeIsFull = false;
         obj.transform.parent = null;
         _carryObj = null;
 
         state = State.Dirty;
         if (TryGetComponent(out MeshRenderer meshRenderer)) meshRenderer.material.color = new Color(-1, -1, -1);
-    }
-    private void Update()
-    {
-        if (_carryObj == null) return;
-        if(_carryObj.GetComponent<İnteractable>().TabakinIcinde) return; 
-        RemoveObject(_carryObj);
     }
 }

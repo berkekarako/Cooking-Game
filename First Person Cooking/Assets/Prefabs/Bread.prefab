@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6704760698251374146}
   - component: {fileID: 8485292953161001149}
   - component: {fileID: 8680106241927562038}
-  - component: {fileID: 8189858779566677150}
+  - component: {fileID: 2530211781252255140}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2810593344759461662
 MeshFilter:
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8189858779566677150
+--- !u!114 &2530211781252255140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6375713112075941653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7059266d850523147820f0ae0ccb57e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 64885b0ca751ce84bbeb866f3527fb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "Tavan\u0131nIcindemi": 0
+  pan: {fileID: 0}
+  plate: {fileID: 0}
+  dishWasher: {fileID: 0}
+  tavayaKoyulabilir: 1
+  tabakaKoyulabilir: 1
+  canPutDishwasher: 0

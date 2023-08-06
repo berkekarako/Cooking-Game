@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pisirilebilir : MonoBehaviour
+public class Cookable : MonoBehaviour
 {
     [SerializeField] public enum CookingDegree
     {
@@ -19,10 +19,10 @@ public class Pisirilebilir : MonoBehaviour
     
     public void PisirmeStart()
     {
-        if (TryGetComponent(out İnteractable interactable))
+        if (TryGetComponent(out Interactable interactable))
         {
-            if(interactable.TavanınIcindemi) Invoke(nameof(Pisir), pisirmeSuresi);
-            else if(interactable.TabakinIcinde) print("a");
+            if(interactable.pan) Invoke(nameof(Pisir), pisirmeSuresi);
+            else if(interactable.plate) print("a");
             else Yakma();
         }
     }
