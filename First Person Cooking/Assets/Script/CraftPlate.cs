@@ -13,29 +13,29 @@ public class CraftPlate : MonoBehaviour
         //public int craftCount;
         //public int craftMaxCount;
     }
-    
+
     public Craft[] crafts;
 
     public GameObject Check(List<GameObject> objs)
     {
         List<string> objTags = new List<string>();
-        
+
         foreach (var obj in objs)
         {
             objTags.Add(obj.tag);
         }
-        
+
         foreach (var craft in crafts)
         {
-            /*print(craft.craftObjects);
-            if (craft.craftObjects == objTags)
-            {
-                return craft.craftObject;
-            }*/
-            
+            // print(craft.craftObjects);
+            //if (craft.craftObjects == objTags)
+            //{
+            //    return craft.craftObject;
+            //}
+
             if (craft.craftObjects.Count != objTags.Count)
             {
-                continue; 
+                continue;
             }
 
             bool isMatching = true;

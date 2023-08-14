@@ -5,11 +5,11 @@ public class WashObj : MonoBehaviour
 {
     public float washTime;
     private float x;
-    
+
     public bool isWashing;
-    
+
     private DishWasher dishWasher;
-    
+
     public void WashStart(GameObject obj)
     {
         isWashing = true;
@@ -23,7 +23,7 @@ public class WashObj : MonoBehaviour
         x -= Time.deltaTime;
 
         if (!(x <= 0)) return;
-        if(TryGetComponent(out Plate plate)) plate.state = Plate.State.Clear;
+        if (TryGetComponent(out Plate plate)) plate.state = Plate.State.Clear;
         if (TryGetComponent(out MeshRenderer meshRenderer)) meshRenderer.material.color = new Color(1, 1, 1);
         isWashing = false;
     }

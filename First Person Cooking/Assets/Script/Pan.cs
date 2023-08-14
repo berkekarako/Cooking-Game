@@ -7,7 +7,7 @@ public class Pan : MonoBehaviour
     public Transform FoodPosition;
     private bool _placeIsFull = false; // Tava i�i kontrol�
     private GameObject carryObj;
-    
+
 
     // Objeyi tavan�n i�ine yerle�tirme
     public void PlaceObject(GameObject obj, InteractiveObject interactiveObject)
@@ -18,15 +18,15 @@ public class Pan : MonoBehaviour
             {
                 carryObj = obj;
                 _placeIsFull = true;
-                
+
                 interactiveObject.ObjectPut();
 
                 obj.GetComponent<Interactable>().pan = this;
-                
+
                 obj.transform.rotation = transform.rotation;
                 obj.transform.position = FoodPosition.position;
                 obj.transform.parent = transform;
-                
+
                 Debug.Log("Obje tavan�n i�ine yerle�tirildi.");
             }
 
@@ -47,10 +47,10 @@ public class Pan : MonoBehaviour
     public void RemoveObject(Interactable interactable, GameObject obj)
     {
         interactable.pan = null;
-        
+
         _placeIsFull = false;
         carryObj = null;
-        
+
         obj.transform.parent = null;
     }
 }

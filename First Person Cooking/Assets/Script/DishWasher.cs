@@ -5,7 +5,7 @@ public class DishWasher : MonoBehaviour
 {
     public float maxWashCount;
     public List<GameObject> washObjects = new List<GameObject>();
-    
+
     public Transform dishwashPoint;
 
     public bool Wash(GameObject obj, InteractiveObject interactiveObject)
@@ -16,7 +16,7 @@ public class DishWasher : MonoBehaviour
             {
                 if (maxWashCount > washObjects.Count)
                 {
-                    if(obj.TryGetComponent(out WashObj washObj)) washObj.WashStart(gameObject);
+                    if (obj.TryGetComponent(out WashObj washObj)) washObj.WashStart(gameObject);
                     washObjects.Add(obj);
                     interactable.dishWasher = this;
                     obj.transform.position = dishwashPoint.position;
@@ -25,7 +25,7 @@ public class DishWasher : MonoBehaviour
                 }
             }
         }
-        
+
         obj.GetComponent<Collider>().enabled = true;
         obj.GetComponent<Collider>().isTrigger = true;
         obj.GetComponent<Rigidbody>().isKinematic = true;
